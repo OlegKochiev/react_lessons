@@ -1,0 +1,17 @@
+#input {
+  width: 200px;
+  height: 30px;
+  margin: 0 30px;
+}
+
+#button {
+  width: 60px;
+  height: 30px;
+  margin-right: 30px;
+}
+
+#form {
+  width: 450px;
+  margin: 50px auto;
+}
+

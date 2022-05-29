@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
 import './index.css';
 // import { App, Comment } from './App';
-import Clock from './Time';
-import reportWebVitals from './reportWebVitals';
+// import Clock from './Time';
+
+import Form from './genderize';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -20,10 +22,11 @@ root.render(
         name: "Harry"
       }}
     /> */}
-    <Clock timer={{ time: 1100 }}/>
+   {/*  <Clock timer={{ time: 1100 }}/>
     <Clock timer={{ time: 1300 }}/>
     <Clock timer={{ time: 1600 }}/>
-    <Clock timer={{ time: 1800 }}/>
+    <Clock timer={{ time: 1800 }}/> */}
+    <Form />
   </React.StrictMode>
 );
 
