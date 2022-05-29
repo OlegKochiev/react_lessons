@@ -23,6 +23,11 @@ class Button extends React.Component {
 
 class Form extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   handleSubmit (e)  {
     console.log('hello submit');
     console.log(this);
