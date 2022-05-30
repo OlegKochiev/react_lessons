@@ -12,17 +12,37 @@ class Button extends React.Component {
 class Input extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { inputValue: '' };
+    this.state = { 
+      inputValue: '',
+      warningMessage: 'Введите имя!',
+      labelClass: 'red'
+    };
     this.handleKeyUp = this.handleKeyUp.bind(this);
   }
 
   handleKeyUp(e) {
-    this.props.onInputValueChange(e.target.value);
+    let name = e.target.value;
+    this.props.onInputValueChange(name);
+    if (name.length < 3) {
+      this.setState({
+        warningMessage: "Необходимо ввести более 2-х символов!",
+        labelClass: "label__warning"
+      });
+    } else {
+      this.setState({
+        warningMessage: "Хорошо!",
+        labelClass: "green"
+      })
+    }
   }
 
   render() {
+    let warningMessage = '';
     return (
-      <input type="text" id="input" onKeyUp={ this.handleKeyUp }></input>
+      <label className = { 'inputLabel' + this.state.labelClass }>
+        <input type="text" id="input" onKeyUp={ this.handleKeyUp }></input>
+        { this.state.warningMessage }
+      </label>
     )
   } 
 }
@@ -30,7 +50,7 @@ class Input extends React.Component {
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { inputValue: '' }
+    this.state = { inputValue: '', sexValue: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
   }
@@ -44,6 +64,9 @@ class Form extends React.Component {
   async handleSubmit (e)  {
     e.preventDefault();
     let sex = await this.handleRequest();
+    this.setState({
+      sexValue: sex.gender
+    });
     console.log(sex);
   }
 
@@ -59,11 +82,14 @@ class Form extends React.Component {
   render() {
     return (
       <form action="#" method="POST" id="form" onSubmit={ this.handleSubmit }>
-        <label>
-          { this.state.inputValue } 
-          <Input onInputValueChange={ this.handleInputKeyUp } /> 
+        <label className="label">
+          { this.state.inputValue }
         </label>
+        <Input onInputValueChange={ this.handleInputKeyUp } />
         <Button />
+        <label className="label">
+          { this.state.sexValue }
+        </label>
       </form>
     )
   } 
