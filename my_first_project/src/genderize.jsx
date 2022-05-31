@@ -26,7 +26,7 @@ class Input extends React.Component {
     if (name.length < 3) {
       this.setState({
         warningMessage: "Необходимо ввести более 2-х символов!",
-        labelClass: "label__warning"
+        labelClass: "label__warning red"
       });
     } else {
       this.setState({
@@ -39,7 +39,7 @@ class Input extends React.Component {
   render() {
     let warningMessage = '';
     return (
-      <label className = { 'inputLabel' + this.state.labelClass }>
+      <label className = { 'inputLabel' + ' ' + this.state.labelClass }>
         <input type="text" id="input" onKeyUp={ this.handleKeyUp }></input>
         { this.state.warningMessage }
       </label>
