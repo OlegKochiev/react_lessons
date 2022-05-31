@@ -23,7 +23,7 @@ class Input extends React.Component {
   handleKeyUp(e) {
     let name = e.target.value;
     this.props.onInputValueChange(name);
-    if (name.length < 3) {
+    if (name.length <= 2) {
       this.setState({
         warningMessage: "Необходимо ввести более 2-х символов!",
         labelClass: "label__warning red"
