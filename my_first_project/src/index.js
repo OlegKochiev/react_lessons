@@ -4,8 +4,10 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 // import { App, Comment } from './App';
 // import Clock from './Time';
+// import Form from './genderize';
 
-import Form from './genderize';
+import List from './List';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -26,7 +28,8 @@ root.render(
     <Clock timer={{ time: 1300 }}/>
     <Clock timer={{ time: 1600 }}/>
     <Clock timer={{ time: 1800 }}/> */}
-    <Form />
+    {/* <Form /> */}
+    <List />
   </React.StrictMode>
 );
 
