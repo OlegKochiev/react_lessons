@@ -1,5 +1,6 @@
 .label {
-  width: 20px;
+  display: block;
+  align-self: flex-end;
 }
 
 .green{
@@ -13,7 +14,7 @@
 #input {
   width: 200px;
   height: 30px;
-  margin: 0 30px;
+  margin-bottom: 10px;
 }
 
 #button {
@@ -23,9 +24,10 @@
 }
 
 #form {
-  width: 450px;
+  width: fit-content;
   margin: 50px auto;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
