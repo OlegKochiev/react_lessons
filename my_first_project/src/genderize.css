@@ -3,11 +3,13 @@
   align-self: flex-end;
 }
 
-.green{
+.label__green,
+.input__green{
   color: green;
 }
 
-.red{
+.label__red,
+.input__red{
   color: red;
 }
 

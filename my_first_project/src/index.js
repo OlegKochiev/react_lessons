@@ -5,10 +5,19 @@ import './index.css';
 // import { App, Comment } from './App';
 // import Clock from './Time';
 // import List from './List';
-// import Form from './genderize';
-import Examples from './Examples';
+import Form from './genderize';
+// import Examples from './Examples';
+// import FilterableProductTable from './Products';
 
 
+const PRODUCTS = [
+  { category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football' },
+  { category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball' },
+  { category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball' },
+  { category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch' },
+  { category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5' },
+  { category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7' }
+];
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -25,13 +34,16 @@ root.render(
         name: "Harry"
       }}
     /> */}
-   {/*  <Clock timer={{ time: 1100 }}/>
+    {/*  <Clock timer={{ time: 1100 }}/>
     <Clock timer={{ time: 1300 }}/>
     <Clock timer={{ time: 1600 }}/>
     <Clock timer={{ time: 1800 }}/> */}
-    {/* <Form /> */}
+    <Form />
     {/* <List /> */}
-    <Examples />
+    {/* <Examples /> */}
+
+    {/* <FilterableProductTable products={PRODUCTS} /> */}
+
   </React.StrictMode>
 );
 
