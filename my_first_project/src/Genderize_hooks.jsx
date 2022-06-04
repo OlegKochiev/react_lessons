@@ -1,13 +1,13 @@
 import './genderize.css'
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-function Button(props) {
+function Button (props) {
   return (
     <button type="submit" id="button">Send</button>
   )
 }
 
-function LabelName(props) {
+function LabelName (props) {
   return (
     <label className={'label' + ' ' + props.labelModificator}>
       {props.warningMessage}
@@ -15,11 +15,11 @@ function LabelName(props) {
   )
 }
 
-function InputName(props) {
-  function handleChange(e) {
-    let name = e.target.value;
-    props.handleChange(name);
-    props.handleWarningMessage(name);
+function InputName (props) {
+  function handleChange (e) {
+    const name = e.target.value
+    props.handleChange(name)
+    props.handleWarningMessage(name)
   }
 
   return (
@@ -32,51 +32,51 @@ function InputName(props) {
   )
 }
 
-function Form() {
-  const [inputValue, setInputValue] = useState('');
-  const [sexValue, setSexValue] = useState('');
-  const [warningMessage, setWarningMessage] = useState('Введите имя!');
-  const [labelModificator, setLabelModificator] = useState('');
-  const [inputModificator, setInputModificator] = useState('');
+function Form () {
+  const [inputValue, setInputValue] = useState('')
+  const [sexValue, setSexValue] = useState('')
+  const [warningMessage, setWarningMessage] = useState('Введите имя!')
+  const [labelModificator, setLabelModificator] = useState('')
+  const [inputModificator, setInputModificator] = useState('')
 
-  function handleChange(inputValue) {
-    setInputValue(inputValue);
+  function handleChange (inputValue) {
+    setInputValue(inputValue)
   }
 
-  function handleWarningMessage(name) {
+  function handleWarningMessage (name) {
     let warningMessage = ''
-    let labelModificator = '';
-    let inputModificator = '';
+    let labelModificator = ''
+    let inputModificator = ''
 
     if (name.length < 8) {
-      warningMessage = 'Количество символов должно быть не менее 8!';
-      labelModificator = 'label__red';
-      inputModificator = 'input__red';
+      warningMessage = 'Количество символов должно быть не менее 8!'
+      labelModificator = 'label__red'
+      inputModificator = 'input__red'
     } else {
-      warningMessage = 'Количество символов удовлеетворяет норме!';
-      labelModificator = 'label__green';
-      inputModificator = 'input__green';
+      warningMessage = 'Количество символов удовлеетворяет норме!'
+      labelModificator = 'label__green'
+      inputModificator = 'input__green'
     }
 
-    setWarningMessage(warningMessage);
-    setLabelModificator(labelModificator);
-    setInputModificator(inputModificator);
+    setWarningMessage(warningMessage)
+    setLabelModificator(labelModificator)
+    setInputModificator(inputModificator)
   }
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    let sex = await handleRequest();
-    setSexValue(sex.gender);
-    console.log(sex);
+  async function handleSubmit (e) {
+    e.preventDefault()
+    const sex = await handleRequest()
+    setSexValue(sex.gender)
+    console.log(sex)
   }
 
-  async function handleRequest() {
-    const firstName = inputValue;
-    const serverUrl = 'https://api.genderize.io';
-    const url = `${serverUrl}?name=${firstName}`;
-    const response = await fetch(url);
-    const sex = await response.json();
-    return sex;
+  async function handleRequest () {
+    const firstName = inputValue
+    const serverUrl = 'https://api.genderize.io'
+    const url = `${serverUrl}?name=${firstName}`
+    const response = await fetch(url)
+    const sex = await response.json()
+    return sex
   }
 
   return (
@@ -95,4 +95,4 @@ function Form() {
   )
 }
 
-export default Form;
+export default Form
