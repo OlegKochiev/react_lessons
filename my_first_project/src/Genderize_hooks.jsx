@@ -65,15 +65,13 @@ function Form() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let sex = await this.handleRequest();
-    this.setState({
-      sexValue: sex.gender
-    });
+    let sex = await handleRequest();
+    setSexValue(sex.gender);
     console.log(sex);
   }
 
   async function handleRequest() {
-    const firstName = this.state.inputValue;
+    const firstName = inputValue;
     const serverUrl = 'https://api.genderize.io';
     const url = `${serverUrl}?name=${firstName}`;
     const response = await fetch(url);
