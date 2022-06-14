@@ -30,7 +30,7 @@ class Examples extends React.Component {
             checked={this.state.isGoing}
             onChange={this.handleInputChange} />
         </label>
-        <br />
+        
         <label>
           Количество гостей:
           <input
