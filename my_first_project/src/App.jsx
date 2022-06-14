@@ -1,8 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
 
-function App(props) {
+function App (props) {
   return (
     <div className="App">
       <header className="App-header">
@@ -18,88 +17,83 @@ function App(props) {
         >
           Learn React
         </a>
-      <Tick />
-      <Hello name="Jhon"/>
-      <Comment author={{
-        name: 'Jhon',
-        avatarUrl: './title.com',
-        text: 'Lorem ipsum...'
-      }} />
+        <Tick />
+        <Hello name="Jhon" />
+        <Comment author={{
+          name: 'Jhon',
+          avatarUrl: './title.com',
+          text: 'Lorem ipsum...'
+        }} />
       </header>
     </div>
-  );
+  )
 }
 
 class Hello extends React.Component {
-  render(props) {
-    return <h1>Hello { this.props.name } !</h1>
+  render (props) {
+    return <h1>Hello {this.props.name} !</h1>
   }
 }
 
-
-function Tick(props) {
+function Tick (props) {
   const element = (
     <div>
       <h1>Hi!</h1>
       <h2>It is {new Date().toLocaleString()}</h2>
     </div>
-  );
-  return element;
+  )
+  return element
 }
 
 class Avatar extends React.Component {
-  render() {
+  render () {
     return (
-      <img className="Avatar"      
-        src={this.props.user.avatarUrl}      
-        alt={this.props.user.name} 
+      <img className="Avatar"
+        src={this.props.user.avatarUrl}
+        alt={this.props.user.name}
       />
-    );
+    )
   }
 }
 
 class UserInfo extends React.Component {
-  render() {
+  render () {
     return (
       <div className="UserInfo">
-        <Avatar user={ this.props.user } />
+        <Avatar user={this.props.user} />
         <div className="UserInfo-name">
-          { this.props.author.name }
-        </div>             
+          {this.props.author.name}
+        </div>
       </div>
-    );
-  } 
+    )
+  }
 }
 
 class Comment extends React.Component {
-  render() {
+  render () {
     return (
       <div className="Comment">
-        <UserInfo user={ this.props.user }
-          author={ this.props.author }
+        <UserInfo user={this.props.user}
+          author={this.props.author}
         />
         <div className="Comment-text">
           {this.props.author.text}
         </div>
         <div className="Comment-date">
-          { this.props.author.date }
+          {this.props.author.date}
         </div>
       </div>
-    );
+    )
   }
 }
-
-
-
-
 
 export {
   App,
   Tick,
   Comment
-};
+}
 
-/* 
+/*
 {{
   avatarUrl: 'https://someurl/com',
   name: 'Harry'}}
