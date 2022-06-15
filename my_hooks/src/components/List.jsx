@@ -8,7 +8,7 @@ const List = () => {
     <div>
       {
         todos.map((todo) => {
-
+          
         })
       }
     </div>
