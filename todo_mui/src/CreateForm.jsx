@@ -1,28 +1,24 @@
 import React, { useState } from 'react';
-import { Box, TextField, Typography } from '@mui/material';
-import { Divider } from '@mui/material';
+import { Box, FormControlLabel, TextField, Typography } from '@mui/material';
+import { Divider, Switch } from '@mui/material';
 import InputBox from './components/InputBox';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-
+import AddModeratorIcon from '@mui/icons-material/AddModerator';
+import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import SwitchBox from './components/SwitchBox';
 
 const CreateForm = () => {
-
-  const [dateTimePickerValue, setDateTimePickerValue] = useState(
-    new Date('2022-08-18')
-  )
-
-  const handleDateTimePicker = () => {
-    console.log('hi');
-  }
 
   return (
     <Box
       className='app'
       component="form"
       sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         maxWidth: 500,
         backgroundColor: 'white',
         boxShadow: 10,
@@ -32,19 +28,15 @@ const CreateForm = () => {
       <Typography
         variant='h5'
         sx={{
-          marginLeft: 2,
-          marginRight: 2
+          margin: '20px 0 20px 20px'
         }}>
         Create User
       </Typography>
-
       <Divider />
 
       <InputBox
         inputIcon={
-          <PersonIcon
-            fontSize='large'
-          />
+          <PersonIcon />
         }
         inputLabel='Full Name'
       />
@@ -52,9 +44,7 @@ const CreateForm = () => {
 
       <InputBox
         inputIcon={
-          <LocalPhoneIcon
-            fontSize='large'
-          />
+          <LocalPhoneIcon />
         }
         inputLabel='Email'
       />
@@ -62,35 +52,26 @@ const CreateForm = () => {
 
       <InputBox
         inputIcon={
-          <EmailIcon
-            fontSize='large'
-          />
+          <EmailIcon />
         }
         inputLabel='Phone'
       />
       <Divider />
 
+      <SwitchBox
+        switchName='Protected'
+      />
+      <Divider />
 
-      {/* <TextField
-        id="date"
-        label="Birthday"
-        type="date"
-        defaultValue="2017-05-24"
-        sx={{ width: '90%' }}
-        InputLabelProps={{
-          shrink: true,
-        }}
-      /> */}
-      {/* <DesktopDatePicker
-        label="Date desktop"
-        inputFormat="MM/dd/yyyy"
-        value={dateTimePickerValue}
-        onChange={handleDateTimePicker}
-        renderInput={(params) => <TextField {...params} />}
-      /> */}
+      <SwitchBox
+        switchName='Admin'
+      />
+      <Divider />
+
+
 
     </Box>
   );
 };
 
-export default Cre
+export default CreateForm;
