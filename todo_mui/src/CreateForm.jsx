@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FormControlLabel, TextField, Typography } from '@mui/material';
+import { Box, Button, FormControlLabel, TextField, Typography } from '@mui/material';
 import { Divider, Switch } from '@mui/material';
 import InputBox from './components/InputBox';
 import PersonIcon from '@mui/icons-material/Person';
@@ -10,6 +10,40 @@ import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import SwitchBox from './components/SwitchBox';
 
 const CreateForm = () => {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState(0);
+  const [isProtected, setProtected] = useState(false);
+  const [isAdmin, setAdmin] = useState(false);
+
+
+  const handleSave = () => {
+    const userDatas = {
+      name,
+      email,
+      phone,
+      isProtected,
+      isAdmin
+    };
+    console.log(userDatas);
+  }
+
+  const handleSetName = (userName) => {
+    setName(userName);
+  }
+  const handleSetEmail = (userEmail) => {
+    setEmail(userEmail);
+  }
+  const handleSetPhone = (userPhone) => {
+    setPhone(userPhone);
+  }
+  const handleSetProtected = (userProtected) => {
+    setProtected(userProtected);
+  }
+  const handleSetAdmin = (userAdmin) => {
+    setAdmin(userAdmin);
+  }
 
   return (
     <Box
@@ -39,6 +73,7 @@ const CreateForm = () => {
           <PersonIcon />
         }
         inputLabel='Full Name'
+        handleSetInput={handleSetName}
       />
       <Divider />
 
@@ -47,6 +82,7 @@ const CreateForm = () => {
           <LocalPhoneIcon />
         }
         inputLabel='Email'
+        handleSetInput={handleSetEmail}
       />
       <Divider />
 
@@ -55,20 +91,38 @@ const CreateForm = () => {
           <EmailIcon />
         }
         inputLabel='Phone'
+        handleSetInput={handleSetPhone}
       />
       <Divider />
 
       <SwitchBox
         switchName='Protected'
+        handleSetSwitch={handleSetProtected}
       />
       <Divider />
 
       <SwitchBox
         switchName='Admin'
+        handleSetSwitch={handleSetAdmin}
       />
       <Divider />
 
-
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          margin: '10px 40px'
+        }}>
+        <Button
+          variant='outlined'>
+          Cancel
+        </Button>
+        <Button
+          variant='contained'
+          onClick={handleSave}>
+          SAVE
+        </Button>
+      </Box>
 
     </Box>
   );

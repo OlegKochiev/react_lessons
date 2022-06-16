@@ -3,7 +3,12 @@ import AddModeratorIcon from '@mui/icons-material/AddModerator';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import { Box, FormControlLabel, Switch } from '@mui/material';
 
-const SwitchBox = ({ switchName }) => {
+const SwitchBox = ({ switchName, handleSetSwitch }) => {
+  const handleSwitch = (e) => {
+    const isChecked = e.target.checked;
+    handleSetSwitch(isChecked);
+  }
+
   return (
     <Box
       sx={{
@@ -19,6 +24,7 @@ const SwitchBox = ({ switchName }) => {
         control={<Switch sx={{ m: 1 }} defaultChecked />}
         label={switchName}
         labelPlacement='start'
+        onChange={handleSwitch}
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
